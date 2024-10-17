@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "./model/user.model.js";
+import User from "../model/user.model.js";
 
 export const protectedRoute = async function (req, res, next) {
   try {
@@ -20,6 +20,7 @@ export const protectedRoute = async function (req, res, next) {
           .json({ message: "Unauthorized - User not found" });
 
       req.user = user;
+      next();
     } catch (error) {
       if (error.name === "TokenExpiredError")
         return res
