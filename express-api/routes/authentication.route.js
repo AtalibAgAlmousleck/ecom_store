@@ -4,7 +4,6 @@ import {
   logout,
   register,
   refreshToken,
-  getProfile,
 } from "../controller/authentication.controller.js";
 
 const router = express.Router();
